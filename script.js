@@ -24,6 +24,17 @@ navigator.geolocation.getCurrentPosition((position) => {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    L.marker(coords).addTo(map).bindPopup('A pretty CSS popup.<br> Easily customizable.').openPopup();
+    //L.marker(coords).addTo(map).bindPopup(`Location:<br>Lat: ${latitude}<br>Lon: ${longitude}`).openPopup();
 
-},() => alert('Error while retrieving location! Check if location permisson is set to Allow.'))
+    map.on('click', (mapEvent) => {
+        const {lat, lng} = mapEvent.latlng
+        L.marker([lat, lng]).addTo(map).bindPopup(L.popup({
+            maxWidth: 250,
+            minWidth: 100,
+            autoClose: false,
+            closeOnClick: false,
+            className: 'running-popup'
+        })).setPopupContent('Hello').openPopup();
+    })
+
+},() => alert('Error while retrieving location! Check if location permission is set to Allow.'))
