@@ -4,6 +4,7 @@
 
   --color-dark--1: #2d3439;
   --color-dark--2: #42484d;
+  --color-dark--h: #52585d;
   --color-light--1: #aaa;
   --color-light--2: #ececec;
   --color-light--3: rgb(214, 222, 224);
@@ -85,6 +86,10 @@ a:visited {
 }
 .workout--cycling {
   border-left: 5px solid var(--color-brand--1);
+}
+
+.workout:hover {
+  background-color: var(--color-dark--h);
 }
 
 .workout__title {
